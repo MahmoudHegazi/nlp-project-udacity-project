@@ -35,6 +35,7 @@ async function sendJSONPostAjaxAsync(url, data) {
         return await res.json();
 
     } catch (error) {
+        // this can considered typescript betwen client and backend
         return {code: 501, message: 'Error while send Request to server.'};
     }
 }

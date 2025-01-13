@@ -4,7 +4,11 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 dotenv.config();
 
+const port = process.env.PORT ? process.env.PORT : 5000;
+
 const app = express();
+
+app.use(express.static('dist'));
 
 const cors = require('cors');
 
@@ -14,20 +18,22 @@ app.use(bodyParser.json());
 console.log(__dirname);
 
 // Variables for url and api key
-
+const apiKey = process.env.API_KEY;
 
 app.get('/', function (req, res) {
-    res.send("This is the server API page, you may access its services via the client app.");
+    res.sendFile('dist/index.html');
 });
 
 
-// POST Route
-
+// nlp
+app.post('/nlp', function (req, res) {
+    res.send(JSON.stringify({code: 501, message: 'Error while send Request to server.'}));
+});
 
 
 // Designates what port the app will listen to for incoming requests
-app.listen(8000, function () {
-    console.log('Example app listening on port 8000!');
+app.listen(port, function () {
+    console.log(`Example app listening on port ${port}!`);
 });
 
 
