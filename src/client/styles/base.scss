@@ -28,9 +28,9 @@ $alerts: (
     padding: 10px;
 
     /* daynamic props */
-    background: map-get($alert, bg);
-    color: map-get($alert, color);
-    border: map-get($alert, border);
+    background: map-get(map-get($alerts, $status), "bg");
+    color: map-get(map-get($alerts, $status), "color");
+    border: map-get(map-get($alerts, $status), "border");
 }
 
 /*
@@ -38,7 +38,7 @@ $alerts: (
  Placeholder selectors are like classes but only meant to be !extended! (not used directly in the HTML).
 */
 
-%close_btn {
+.close_btn {
     max-width:30px;padding:4px;
     background: red;
     color: white;
@@ -67,14 +67,14 @@ section {
         width: 100%;
         display:flex;
         justify-content:flex-start;
-        align-items:flex-start;
+        align-items:center;
         flex-flow:row nowrap;
 
         .message {
             padding: 5px;
         }
         .close_btn {
-            @extend close_btn;
+            align-self:flex-start;
         }
     }
     .alert.danger {

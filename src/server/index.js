@@ -1,7 +1,12 @@
-var path = require('path');
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
+
+
+// Or use require in older versions of Node.js
+// const fetch = require('node-fetch');
+
 dotenv.config();
 
 const port = process.env.PORT ? process.env.PORT : 5000;
@@ -27,7 +32,7 @@ app.get('/', function (req, res) {
 
 // nlp
 app.post('/nlp', function (req, res) {
-    res.send(JSON.stringify({code: 501, message: 'Error while send Request to server.'}));
+    res.send({})
 });
 
 
@@ -36,4 +41,5 @@ app.listen(port, function () {
     console.log(`Example app listening on port ${port}!`);
 });
 
+module.exports = app;
 
