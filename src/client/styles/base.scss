@@ -1,0 +1,92 @@
+/* update all app alerts from one mapping this props speacfic for each status */
+$alerts: (
+  danger: (
+    bg: rgb(117, 43, 43),
+    color: white,
+    border: 1px solid black
+  ),
+  success: (
+    bg: lightgreen,
+    color: white,
+    border: 1px solid rgb(37, 206, 164)
+  ),
+  info: (
+    bg: lightblue,
+    color: black,
+    border: 1px solid rgb(61, 61, 233)
+  ),
+  warning: (
+    bg: rgba(223, 94, 8, 0.781),
+    color: white,
+    border: 1px solid orange
+  ),
+);
+/* mixin like function to display the alerts and manage variables shared and global that all edits for all app from one object alerts */
+@mixin alert-styles($status) {
+    /* global static shared props and values*/
+    border-radius: 8px;
+    padding: 10px;
+
+    /* daynamic props */
+    background: map-get($alert, bg);
+    color: map-get($alert, color);
+    border: map-get($alert, border);
+}
+
+/*
+ # Placeholder Selectors (%)
+ Placeholder selectors are like classes but only meant to be !extended! (not used directly in the HTML).
+*/
+
+%close_btn {
+    max-width:30px;padding:4px;
+    background: red;
+    color: white;
+    border-radius: 8px;
+    padding: 5px;
+    font-weight: bold;
+    font-family: Impact;
+}
+
+
+main {
+    flex: 2;
+}
+
+section {
+    max-width: 800px;
+    margin: 50px auto;
+}
+
+#messages {
+    padding: 8px;
+    color: black;
+    width: 100%;
+
+    .alert {
+        width: 100%;
+        display:flex;
+        justify-content:flex-start;
+        align-items:flex-start;
+        flex-flow:row nowrap;
+
+        .message {
+            padding: 5px;
+        }
+        .close_btn {
+            @extend close_btn;
+        }
+    }
+    .alert.danger {
+        @include alert-styles(danger);
+    }
+    .alert.success {
+        @include alert-styles(success);
+    }
+    .alert.info {
+        @include alert-styles(info);
+    }
+    .alert.warning {
+        @include alert-styles(warning);
+    }
+}
