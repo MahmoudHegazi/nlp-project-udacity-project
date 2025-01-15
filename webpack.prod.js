@@ -54,6 +54,11 @@ module.exports = {
             filename: "[name].css"  // This extracts the CSS into a separate file
         }),
         new WorkBoxPlugin.GenerateSW({
+            swDest: 'service-worker.js', // Your output file name
+            exclude: [/\.map$/, /asset-manifest\.json$/], //  /asset-manifest\.json$/ for react or other libs (note even json and .map files will cached by service-worker so it tell it not cache this things (map sure for the source-map part to display which page have the error not display error in generated file))
+            // Point to your custom service worker file
+            clientsClaim: true, //  Ensures the service worker immediately controls the page (no need refresh to take control)
+            skipWaiting: true, // // Forces new service worker to take control immediately (this kind of help clear cache)
         })
     ],
     devServer: {
