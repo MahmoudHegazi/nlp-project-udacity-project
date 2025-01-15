@@ -32,17 +32,23 @@ function filterSentences(txt) {
 
 // this to create sample of the senetences and url excluded
 function concatSentences(sentence_list, max = 300) {
-    const filteredSentences = sentence_list.filter((sentence) => {
-        return filterSentences(sentence.text);
-    });
-    return (filteredSentences.reduce((a, current) => (a + current.text), '').slice(0, max).concat("..."));
+    if (Array.isArray(sentence_list) && sentence_list.length > 0 && !isNaN(parseInt(max))) {
+        const filteredSentences = sentence_list.filter((sentence) => {
+            return filterSentences(sentence.text);
+        });
+        return String(filteredSentences.reduce((a, current) => {
+            a.push(current.text);
+            return a;
+        }, []).join(' ').slice(0, max).concat("..."));
+    } else {
+        return '';
+    }
 }
 
 function sentimentAnalyze(sentence_list) {
     let sentimentRes = '';
     const txt = (sentence_list.reduce((a, current) => (a + current.text), ''));
     if (txt) {
-        console.log(sentiment.analyze);
 
         const shit = sentiment.analyze(txt);
         const sentimentNum = parseInt(shit.score);

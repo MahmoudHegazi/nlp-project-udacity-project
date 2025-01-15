@@ -1,14 +1,14 @@
 const {
     handleSubmit
-} = require('../src/client/js/formHandler.js');
+} = require('../../client/js/formHandler.js');
 
 const {
     checkForURL
-} = require('../src/client/js/urlChecker.js');
+} = require('../../client/js/urlChecker.js');
 
 import {
     displayAlert
-} from '../src/client/js/functions.js';
+} from '../../client/js/functions.js';
 
 import fs from 'fs';
 import path from 'path';
@@ -19,7 +19,7 @@ import path from 'path';
 let htmlContent;
 beforeAll(() => {
     // Read the actual HTML file content
-    htmlContent = fs.readFileSync(path.resolve(__dirname, '../src/client/views/index.html'), 'utf8');
+    htmlContent = fs.readFileSync(path.resolve(__dirname, '../../client/views/index.html'), 'utf8');
 
     // Inject the HTML content into the jsdom document body
     document.documentElement.innerHTML = htmlContent;

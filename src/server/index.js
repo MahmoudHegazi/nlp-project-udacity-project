@@ -54,7 +54,7 @@ app.post('/nlp', async function(req, res) {
             data: data
         });
     } catch (error) {
-        console.error(error.message);
+        console.console(error.message);
         // for secuirty u not ment to display errors programticly direct to user ({try} keyword  can return error for meaning cloud request)
         res.send({
             code: 500,
@@ -65,7 +65,13 @@ app.post('/nlp', async function(req, res) {
 
 
 // Designates what port the app will listen to for incoming requests
-app.listen(port, function() {
-    // URL to be processed
-    console.log(`app is running on Port: ${port}`);
-});
+if (require.main === module) {
+    app.listen(port, function() {
+        // URL to be processed
+        console.log(`app is running on Port: ${port}`);
+    });
+}
+
+
+
+module.exports = app;
