@@ -24,5 +24,11 @@ This application is a Node.js Express web app designed for dynamically scraping 
 
 Note: jsdom is used to simulate document-related methods for more accurate testing.
 
+
+# Screenshots:
+![image](https://github.com/user-attachments/assets/20511a6a-d395-473c-b039-c1ff86588b81)
+
+![image](https://github.com/user-attachments/assets/1620638b-7eb6-4c70-abdf-490f6786bbd6)
+
 # Author:
 Mahmoud Hegazy
