@@ -36,7 +36,8 @@ Note: jsdom is used to simulate document-related methods for more accurate testi
 # Screenshots:
 ![image](https://github.com/user-attachments/assets/20511a6a-d395-473c-b039-c1ff86588b81)
 
-![image](https://github.com/user-attachments/assets/1620638b-7eb6-4c70-abdf-490f6786bbd6)
+![image](https://github.com/user-attachments/assets/7c4466c7-6b05-4e94-8119-d1ae6b8044e4)
+
 
 # Author:
 Mahmoud Hegazy
