@@ -1,6 +1,6 @@
 {
   "name": "nlp-project-udacity-project",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "index.js",
   "scripts": {
     "test": "jest --selectProjects client server",
@@ -21,7 +21,7 @@
     "jest",
     "test",
     "project",
-    "textrazor",
+    "meaningcloud",
     "topics",
     "entites",
     "relation",
@@ -57,8 +57,8 @@
     "jest": "^29.6.0",
     "jest-environment-jsdom": "^29.7.0",
     "mini-css-extract-plugin": "^0.9.0",
-    "node-sass": "^4.14.1",
     "optimize-css-assets-webpack-plugin": "^5.0.8",
+    "sass": "^1.83.4",
     "sass-loader": "^7.3.1",
     "style-loader": "^0.23.1",
     "supertest": "^6.3.4",

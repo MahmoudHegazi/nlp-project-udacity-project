@@ -1,30 +1,3 @@
-/* update all app alerts from one mapping this props speacfic for each status */
-$alerts: (
-    danger: (bg: rgb(117, 43, 43),
-        color: white,
-        border: 1px solid black),
-    success: (bg: lightgreen,
-        color: black,
-        border: 1px solid rgb(37, 206, 164)),
-    info: (bg: rgb(61, 61, 233),
-        color: white,
-        border: 1px solid lightblue),
-    warning: (bg: rgba(223, 94, 8, 0.781),
-        color: white,
-        border: 1px solid orange),
-);
-
-/* mixin like function to display the alerts and manage variables shared and global that all edits for all app from one object alerts */
-@mixin alert-styles($status) {
-    /* global static shared props and values*/
-    border-radius: 8px;
-    padding: 10px;
-
-    /* daynamic props */
-    background: map-get(map-get($alerts, $status), "bg");
-    color: map-get(map-get($alerts, $status), "color");
-    border: map-get(map-get($alerts, $status), "border");
-}
 
 /*
  # Placeholder Selectors (%)
@@ -125,18 +98,23 @@ body {
     }
 
     .alert.danger {
-        @include alert-styles(danger);
+      background: red;
+      color:white;
     }
 
     .alert.success {
-        @include alert-styles(success);
+      background: black;
+      color: white;
     }
 
     .alert.info {
-        @include alert-styles(info);
+      background: gray;
+      color: black;
     }
 
     .alert.warning {
-        @include alert-styles(warning);
+      background: yellow;
+      color: black;
+
     }
 }

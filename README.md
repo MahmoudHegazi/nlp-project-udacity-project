@@ -18,9 +18,17 @@ This application is a Node.js Express web app designed for dynamically scraping 
     * this accept JSON request thats includes the url and communicate with meaningcloud api to run the NLP and return the result for the client side (AJAX endpoint)
 
 # Tests:
+Tests are run by Jest, and it is configured using projects to separate the tests: one for the client with the jsdom environment and the other for the server with the Node environment.
+
+## Client Tests:
 1. Testing formHandler.js
 2. Testing Functions.js
 3. Testing urlChecker.js
+
+## Server Tests:
+4. Testing index.js
+5. Teesting functions.js
+
 
 Note: jsdom is used to simulate document-related methods for more accurate testing.
 

@@ -11,7 +11,7 @@ const {
 
 
 dotenv.config();
-
+// if port of production defined in env ok, else use 5000
 const port = process.env.PORT ? process.env.PORT : 5000;
 
 const app = express();
