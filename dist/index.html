@@ -1,42 +1,93 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Test</title>
-    </head>
 
-    <body>
+<head>
+    <meta charset="utf-8">
+    <title>WebPack Project</title>
+<link href="main.css" rel="stylesheet"></head>
 
-        <header>
-            <div class="">
-                Logo
+<body>
+    <header class="nav">
+        <div class="nav_item logo">
+            NLP-com
+        </div>
+        <div class="nav_item active">
+            NLP
+        </div>
+    </header>
+
+    <main class="main_cont">
+        <section class="w_100 url_form_section">
+            <div id="messages">
             </div>
-            <div class="">
-                navigation
-            </div>
-        </header>
-
-        <main>
-            <section>
-                <div id="messages"></div>
-                <form id="urlForm">
-                    <input id="name" type="text" name="url" placeholder="Enter URL" required>
-                    <button id="submitButton" type="submit">Submit</button>
-                </form>
-                
-            </section>
-
-            <section>
-                <strong>Form Results:</strong>
-                <div id="results">
-                    
+            <form id="urlForm">
+                <div class="inline_form">
+                    <input id="name" type="text" name="url" placeholder="Enter URL" class="advanced_input" required="">
+                    <button id="submitButton" type="submit" class="submit_btn">Submit</button>
                 </div>
-            </section>
-        </main>
+                <div class="text-center" id="waiter" style="display:none;">Please Wait Processing Your request...</div>
+            </form>
+        </section>
+        <section class="w_100 result_section">
+            <strong>Form Results:</strong>
+            <div id="results">
+                <div id="results">
+                    <!-- Server Response (display:none for js toggling smooth)-->
+                    <div id="server_result" style="display:none;">
+                        <div class="result_row">
+                            <span class="result_title">url: </span>
+                            <!-- subjtive_score+postive_score+topic_if/3 -->
+                            <span id="url"></span>
+                        </div>
+                        <div class="result_row">
+                            <span class="result_title">agreement: </span>
+                            <span id="agreement"></span>
+                        </div>
+                        <div class="result_row">
+                            <span class="result_title">subjectivity: </span>
+                            <span id="subjectivity"></span>
+                        </div>
+                        <div class="result_row">
+                            <span class="result_title">confidence: </span>
+                            <span id="confidence"></span>
+                        </div>
+                        <div class="result_row">
+                            <span class="result_title">irony: </span>
+                            <!-- subjtive_score+postive_score+topic_if/3 -->
+                            <span id="irony"></span>
+                        </div>
+                        <div class="result_row">
+                            <span class="result_title">sentiment: </span>
+                            <!-- subjtive_score+postive_score+topic_if/3 -->
+                            <span id="sentiment"></span>
+                        </div>
+                        <div class="result_row column">
+                            <span class="result_title">sample: </span>
+                            <!-- subjtive_score+postive_score+topic_if/3 -->
+                            <span id="sample"></span>
+                        </div>
+                    </div>
+                    <!-- Processed Data Topic -->
+                </div>
+            </div>
+        </section>
+    </main>
 
-        <footer>
-            <p>This is a footer</p>
-        </footer>
+    <footer class="footer">
+        <p>NLP-Udacity-Projet</p>
+    </footer>
 
-    <script type="text/javascript" src="main.bundle.js"></script></body>
+    <!-- add service worker if supported -->
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+
+<script type="text/javascript" src="main.bundle.js"></script></body>
+
 </html>

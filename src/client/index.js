@@ -1,7 +1,8 @@
-// js files
+// js files (import only what needed (ex used by Client) )
 import { handleSubmit } from './js/formHandler';
+import { removeAlertMsg, displayAlert } from './js/functions';
 
-alert("I EXIST");
+
 // console.log("CHANGE!!");
 
 // sass files
@@ -13,5 +14,7 @@ import './styles/resets.scss';
 
 
 export {
-    handleSubmit
+    handleSubmit,
+    removeAlertMsg,
+    displayAlert
 }

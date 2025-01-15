@@ -1,26 +1,19 @@
 /* update all app alerts from one mapping this props speacfic for each status */
 $alerts: (
-  danger: (
-    bg: rgb(117, 43, 43),
-    color: white,
-    border: 1px solid black
-  ),
-  success: (
-    bg: lightgreen,
-    color: white,
-    border: 1px solid rgb(37, 206, 164)
-  ),
-  info: (
-    bg: lightblue,
-    color: black,
-    border: 1px solid rgb(61, 61, 233)
-  ),
-  warning: (
-    bg: rgba(223, 94, 8, 0.781),
-    color: white,
-    border: 1px solid orange
-  ),
+    danger: (bg: rgb(117, 43, 43),
+        color: white,
+        border: 1px solid black),
+    success: (bg: lightgreen,
+        color: black,
+        border: 1px solid rgb(37, 206, 164)),
+    info: (bg: rgb(61, 61, 233),
+        color: white,
+        border: 1px solid lightblue),
+    warning: (bg: rgba(223, 94, 8, 0.781),
+        color: white,
+        border: 1px solid orange),
 );
+
 /* mixin like function to display the alerts and manage variables shared and global that all edits for all app from one object alerts */
 @mixin alert-styles($status) {
     /* global static shared props and values*/
@@ -38,24 +31,75 @@ $alerts: (
  Placeholder selectors are like classes but only meant to be !extended! (not used directly in the HTML).
 */
 
-.close_btn {
-    max-width:30px;padding:4px;
-    background: red;
-    color: white;
-    border-radius: 8px;
-    padding: 5px;
-    font-weight: bold;
-    font-family: Impact;
+.w_25 {
+    width: 25% !important;
 }
 
+.w_50 {
+    width: 50% !important;
+}
+
+.w_75 {
+    width: 75% !important;
+}
+
+.w_100 {
+    width: 100% !important;
+}
+
+/* ################################ */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
 main {
-    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
 }
 
 section {
     max-width: 800px;
     margin: 50px auto;
+}
+
+body {
+    background: linear-gradient(170deg, #272121, transparent);
+    overflow: auto;
+    /* Allow scrolling if content overflows */
+}
+
+
+.main_cont {
+    background: #5f885f;
+    padding: 10vh 10vw;
+    height: auto;
+    /* Allow height to adjust based on content */
+    margin: 0px;
+    min-height: 80vh;
+}
+
+.close_btn {
+    max-width: 30px;
+    padding: 8px;
+    /* Last defined padding value */
+    background: red;
+    color: white;
+    border-radius: 50%;
+    /* Last defined border-radius value */
+    font-weight: bold;
+    font-family: sans-serif;
+    /* Last defined font-family */
+    max-height: 20px;
+    font-size: 0.825rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #messages {
@@ -65,27 +109,33 @@ section {
 
     .alert {
         width: 100%;
-        display:flex;
-        justify-content:flex-start;
-        align-items:center;
-        flex-flow:row nowrap;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-flow: row nowrap;
 
         .message {
             padding: 5px;
         }
+
         .close_btn {
-            align-self:flex-start;
+            align-self: flex-start;
+            cursor: pointer;
         }
     }
+
     .alert.danger {
         @include alert-styles(danger);
     }
+
     .alert.success {
         @include alert-styles(success);
     }
+
     .alert.info {
         @include alert-styles(info);
     }
+
     .alert.warning {
         @include alert-styles(warning);
     }

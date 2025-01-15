@@ -1,1 +1,28 @@
-app that use nlp in node.js server and webpack to manage all app resources such as sass compiling , handle imports within entery for js and css-loader for sass imports, this single page app with form accepts url for any topic and using javascript async fetch request to send url to server after validated client side and server side then send other async request but this time the server node.js of this app is the client the request sent to textrazor api to first scrape the html dynamic (will use option not raw_html speacfic that exclude menus and other and get body main only, then display what this topic main about max 3, and what is entites repeated such as keyword udacity, news, etc dynamic generated max 3 the top 3 and finaly for every entite maybe get relation betwen entites sentences to get new data (optional), also use textrazor for isSubjective detecting for subjective such as opinions, sugesstes note important point i not provide the subjective keywords or limit categoriezed so it dynamic no need chatgpt for categorieze the subjective ex it can be opinion, sugesstes etc, and get from 0to5 options will displayed in frontend as html divs to display nested nlp requests with textrazor so this main focus the subjectivity is the container id, then for each subjective ex opinion run other textrazor anlyasis for display sentiment or poliorty or isPositive or nagtive then display topic of the sentenice and main enties max 3 for this subjetive in loop for max 5 subjectives, then display all that data in the frontend created div for each subject processed by jquery, and for global there are displaying the main topic for all the text and info like relations between subjectivities from 0 to 5 optional=dynamic_any_range,  and max 10 entites, 1 topic with js frontend sass effect for each topic with preloaded list for main topics can manged by user using local storage memory, also the polirty for the main full text and the other rubric data mention in the udacity course and this github ReadMe, the app contains scripts terminal can process simple run or complex ci cd integrations throgh terminal but what listed is what needed in udacity project.
+### Udacity Front-end project (NLP)
+
+# About:
+This application is a Node.js Express web app designed for dynamically scraping the content of a provided URL and performing analysis on the text using the MeaningCloud API.
+
+# how to start
+1. in the terminal nevgiate to the folder directory include the project then run ```npm install```
+2. then run the command ```npm run build-run-prod``` that commands will build the project files, then it will direct start the server.
+3. how to run project in dev mode use ```npm run build-dev```
+4. how to run test ```npm run test```
+
+# endpoints:
+
+* / [GET]
+    * this loads the frontend index.html page
+
+* /nlp [POST]
+    * this accept JSON request thats includes the url and communicate with meaningcloud api to run the NLP and return the result for the client side (AJAX endpoint)
+
+# Tests:
+1. Testing formHandler.js
+2. Testing Functions.js
+3. Testing urlChecker.js
+
+Note: jsdom is used to simulate document-related methods for more accurate testing.
+
+# Author:
+Mahmoud Hegazy

@@ -1,5 +1,34 @@
-header {
+.nav {
+    overflow: visible;
+    /* Allow scrolling if content overflows */
+    height: 6vh;
+    margin: 0;
+    color: white;
     display: flex;
-    justify-content: space-between;
-    padding: 10px 40px;
+    justify-content: flex-start;
+    align-items: center;
+    align-items: stretch;
+
+    .nav_item {
+        min-width: 15vw;
+        background: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 16px;
+        border-right: 10px solid white;
+        margin-right: 1px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .nav_item:hover {
+        border-color: red;
+        cursor: pointer;
+        background: linear-gradient(230deg, #272121, #00000000) !important;
+        color: white;
+    }
+
+    .nav_item.active {
+        background: linear-gradient(170deg, #4545f7, transparent);
+    }
 }

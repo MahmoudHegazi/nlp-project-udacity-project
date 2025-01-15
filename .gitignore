@@ -8,3 +8,6 @@ package-lock.json
 
 # Ignore .env for secuirty but u need it manaul or new way for dynamic publish and givien secuirely
 .env
+
+# ignore dist folder
+dist

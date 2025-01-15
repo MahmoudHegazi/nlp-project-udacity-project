@@ -1,0 +1,13 @@
+footer {
+  min-height: 10vh;
+  margin: 0px;
+  background: #272121;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  line-height: 0px;
+  overflow: visible;
+  /* Allow scrolling if content overflows */
+}
